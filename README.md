@@ -49,7 +49,21 @@ tags {
   timestamp deleted_at
 }
 
-users ||--o{ articles: has
+article_category {
+  int       article_id
+  int       category_id
+}
+
+article_tag {
+  int       article_id
+  int       tag_id
+}
+
+articles   ||..|{ article_category: has
+articles   ||..|{ article_tag:      has
+categories ||..|{ article_category: has
+tags       ||..|{ article_tag:      has
+users      ||--o{ articles:         has
 ```
 
 ## References
