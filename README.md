@@ -66,6 +66,18 @@ tags       ||..|{ article_tag:      has
 users      ||--o{ articles:         has
 ```
 
+## Auth
+
+The UI is scaffolded via
+
+```bash
+composer require laravel/ui
+php artisan ui bootstrap --auth
+npm install
+```
+
+Assets are compiled via `npm run dev`
+
 ## References
 
 This project is from a course by [Laravel Daily](https://www.youtube.com/c/LaravelDaily).
