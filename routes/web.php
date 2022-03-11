@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ArticleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,10 +14,9 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('articles.index');
 });
 
-Auth::routes();
+Route::resource('articles', ArticleController::class);
 
-Route::get('/home', [HomeController::class, 'index'])
-    ->name('home');
+Auth::routes();
