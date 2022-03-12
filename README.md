@@ -2,9 +2,10 @@
 
 Mini blog exercise project made with Laravel 9.x
 
-# Table of contents
+## Table of contents
 
 -   [Database Structure](#database-structure)
+-   [Auth](#auth)
 -   [References](#references)
 
 ## Database Structure
@@ -81,5 +82,7 @@ Assets are compiled via `npm run dev`
 ## References
 
 This project is from a course by [Laravel Daily](https://www.youtube.com/c/LaravelDaily).
+
 The course is [Laravel Eloquent: Expert Level](https://laraveldaily.teachable.com/courses/enrolled/393790).
+
 The mini-blog project is [the last lesson of the course](https://laraveldaily.teachable.com/courses/393790/lectures/6283958).
