@@ -29,7 +29,7 @@
                                 <b>Tags:</b>
                                 {!! $article->tags_links !!}
                             </p>
-                            <p>{{ substr($article->article_text, 0, 200) }}...
+                            <p>{{ substr($article->text, 0, 200) }}...
                                 <a href="{{ route('articles.show', $article->id) }}">Read full article</a>
                             </p>
                         </div>

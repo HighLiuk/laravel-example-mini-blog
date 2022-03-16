@@ -27,7 +27,7 @@
                         {!! $article->tags_links !!}
                     </p>
 
-                    <p>{!! nl2br($article->article_text) !!}</p>
+                    <p>{!! nl2br($article->text) !!}</p>
 
                 </div>
             </div>

@@ -27,8 +27,7 @@
                         <br />
 
                         Article text*:
-                        <textarea name="article_text" class="form-control"
-                            rows="10">{{ old('article_text') }}</textarea>
+                        <textarea name="text" class="form-control" rows="10">{{ old('text') }}</textarea>
                         <br />
 
                         Categories:
