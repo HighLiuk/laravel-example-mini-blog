@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Category;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -14,7 +16,13 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //
+        $articles = Article::with('categories', 'tags', 'author')
+            ->latest()
+            ->paginate();
+        $all_categories = Category::all();
+        $all_tags = Tag::all();
+
+        return view('articles.index', compact('articles', 'all_categories', 'all_tags'));
     }
 
     /**
