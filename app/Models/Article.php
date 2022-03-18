@@ -71,7 +71,7 @@ class Article extends Model
 
                 return $this->categories
                     ->map(function (Category $category) {
-                        return '<a href="'
+                        return '<a class="text-decoration-none" href="'
                             . route('articles.index')
                             . '?category_id='
                             . $category->id
@@ -99,7 +99,7 @@ class Article extends Model
 
                 return $this->tags
                     ->map(function (Tag $tag) {
-                        return '<a href="'
+                        return '<a class="text-decoration-none" href="'
                             . route('articles.index')
                             . '?tag_id='
                             . $tag->id

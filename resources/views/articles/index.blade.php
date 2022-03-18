@@ -15,7 +15,7 @@
                             {{-- <img src="{{ $article->getFirstMediaUrl('main_images', 'thumb') }}" /> --}}
                         </div>
                         <div class="col-md-8">
-                            <a href="{{ route('articles.show', $article->id) }}">
+                            <a class="text-decoration-none" href="{{ route('articles.show', $article->id) }}">
                                 <h2>{{ $article->title }}</h2>
                             </a>
                             <p>
@@ -30,11 +30,14 @@
                                 {!! $article->tags_links !!}
                             </p>
                             <p>{{ substr($article->text, 0, 200) }}...
-                                <a href="{{ route('articles.show', $article->id) }}">Read full article</a>
+                                <a class="text-decoration-none" href="{{ route('articles.show', $article->id) }}">Read
+                                    full article</a>
                             </p>
                         </div>
                     </div>
-                    <hr />
+                    @if(!$loop->last)
+                    <hr style="height: 1px; border: none; background: rgba(0, 0, 0, 0.3)" />
+                    @endif
                     @empty
                     No articles yet.
                     @endforelse
