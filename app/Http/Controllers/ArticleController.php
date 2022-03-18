@@ -19,6 +19,15 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = Article::with('categories', 'tags', 'author')
+            ->when(request()->category_id, function ($query) {
+                $query->whereRelation('categories', 'id', request()->category_id);
+            })
+            ->when(request()->tag_id, function ($query) {
+                $query->whereRelation('tags', 'id', request()->tag_id);
+            })
+            ->when(request()->query, function ($query) {
+                $query->where('title', 'like', request()->query);
+            })
             ->latest()
             ->paginate();
         $all_categories = Category::all();
