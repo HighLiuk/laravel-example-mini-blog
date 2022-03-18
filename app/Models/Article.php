@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -55,7 +56,61 @@ class Article extends Model
 
     */
 
+    /**
+     * Returns the markup with links to articles of the same categories
+     *
+     * @return \Illuminate\Database\Eloquent\Casts\Attribute
+     */
+    public function categoriesLinks(): Attribute
+    {
+        return new Attribute(
+            get: function () {
+                if ($this->categories->isEmpty()) {
+                    return 'none';
+                }
 
+                return $this->categories
+                    ->map(function (Category $category) {
+                        return '<a href="'
+                            . route('articles.index')
+                            . '?category_id='
+                            . $category->id
+                            . '">'
+                            . $category->name
+                            . '</a>';
+                    })
+                    ->implode(' | ');
+            }
+        );
+    }
+
+    /**
+     * Returns the markup with links to articles of the same tags
+     *
+     * @return \Illuminate\Database\Eloquent\Casts\Attribute
+     */
+    public function tagsLinks(): Attribute
+    {
+        return new Attribute(
+            get: function () {
+                if ($this->tags->isEmpty()) {
+                    return 'none';
+                }
+
+                return $this->tags
+                    ->map(function (Tag $tag) {
+                        return '<a href="'
+                            . route('articles.index')
+                            . '?tag_id='
+                            . $tag->id
+                            . '">'
+                            . $tag->name
+                            . '</a>';
+                    })
+                    ->implode(' | ');
+            }
+        );
+    }
 
     /*
          ____                            
