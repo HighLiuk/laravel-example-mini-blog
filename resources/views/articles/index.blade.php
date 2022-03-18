@@ -22,12 +22,10 @@
                                 <b>Author:</b> {{ $article->author->name }}
                             </p>
                             <p>
-                                <b>Categories:</b>
-                                {!! $article->categories_links !!}
+                                <b>Categories:</b> {!! $article->categories_links !!}
                             </p>
                             <p>
-                                <b>Tags:</b>
-                                {!! $article->tags_links !!}
+                                <b>Tags:</b> {!! $article->tags_links !!}
                             </p>
                             <p>{{ substr($article->text, 0, 200) }}...
                                 <a class="text-decoration-none" href="{{ route('articles.show', $article->id) }}">Read

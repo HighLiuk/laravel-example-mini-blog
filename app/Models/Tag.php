@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -45,7 +46,25 @@ class Tag extends Model
 
     */
 
-
+    /**
+     * Returns the markup with links to articles with this tag
+     *
+     * @return \Illuminate\Database\Eloquent\Casts\Attribute
+     */
+    public function link(): Attribute
+    {
+        return new Attribute(
+            get: function () {
+                return '<a class="text-decoration-none" href="'
+                    . route('articles.index')
+                    . '?tag_id='
+                    . $this->id
+                    . '">'
+                    . $this->name
+                    . '</a>';
+            }
+        );
+    }
 
     /*
          ____                            

@@ -17,10 +17,7 @@
     <div class="card-body">
         <ul>
             @foreach ($all_categories as $category)
-            <li>
-                <a class="text-decoration-none" href="{{ route('articles.index') }}?category_id={{ $category->id }}">{{
-                    $category->name }}</a>
-            </li>
+            <li>{!! $category->link !!}</li>
             @endforeach
         </ul>
     </div>
@@ -34,10 +31,7 @@
     <div class="card-body">
         <ul>
             @foreach ($all_tags as $tag)
-            <li>
-                <a class="text-decoration-none" href="{{ route('articles.index') }}?tag_id={{ $tag->id }}">{{ $tag->name
-                    }}</a>
-            </li>
+            <li>{!! $tag->link !!}</li>
             @endforeach
         </ul>
     </div>

@@ -69,17 +69,7 @@ class Article extends Model
                     return 'none';
                 }
 
-                return $this->categories
-                    ->map(function (Category $category) {
-                        return '<a class="text-decoration-none" href="'
-                            . route('articles.index')
-                            . '?category_id='
-                            . $category->id
-                            . '">'
-                            . $category->name
-                            . '</a>';
-                    })
-                    ->implode(' | ');
+                return $this->categories->map->link->implode(' | ');
             }
         );
     }
@@ -97,17 +87,7 @@ class Article extends Model
                     return 'none';
                 }
 
-                return $this->tags
-                    ->map(function (Tag $tag) {
-                        return '<a class="text-decoration-none" href="'
-                            . route('articles.index')
-                            . '?tag_id='
-                            . $tag->id
-                            . '">'
-                            . $tag->name
-                            . '</a>';
-                    })
-                    ->implode(' | ');
+                return $this->tags->map->link->implode(' | ');
             }
         );
     }

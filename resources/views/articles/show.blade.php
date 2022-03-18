@@ -19,12 +19,10 @@
                         <b>Author:</b> {{ $article->author->name }}
                     </p>
                     <p>
-                        <b>Categories:</b>
-                        {!! $article->categories_links !!}
+                        <b>Categories:</b> {!! $article->categories_links !!}
                     </p>
                     <p>
-                        <b>Tags:</b>
-                        {!! $article->tags_links !!}
+                        <b>Tags:</b> {!! $article->tags_links !!}
                     </p>
 
                     <p>{!! nl2br($article->text) !!}</p>

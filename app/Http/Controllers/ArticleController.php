@@ -58,6 +58,7 @@ class ArticleController extends Controller
         if ($request->tags !== '') {
             $tags = explode(',', $request->tags);
             foreach ($tags as $tag_name) {
+                // FIXME: XSS vulnerability
                 $tag = Tag::firstOrCreate(['name' => $tag_name]);
                 $article->tags()->attach($tag);
             }
