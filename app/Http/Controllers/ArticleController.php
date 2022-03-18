@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreArticleRequest;
 use App\Models\Article;
 use App\Models\Category;
 use App\Models\Tag;
+use Auth;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -32,18 +34,36 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+
+        return view('articles.create', compact('categories'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\StoreArticleRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreArticleRequest $request)
     {
-        //
+        $article = Auth::user()
+            ->articles()
+            ->create($request->validated());
+
+        if (isset($request->categories)) {
+            $article->categories()->attach($request->categories);
+        }
+
+        if ($request->tags !== '') {
+            $tags = explode(',', $request->tags);
+            foreach ($tags as $tag_name) {
+                $tag = Tag::firstOrCreate(['name' => $tag_name]);
+                $article->tags()->attach($tag);
+            }
+        }
+
+        return redirect()->route('articles.index');
     }
 
     /**

@@ -20,7 +20,7 @@ class Tag extends Model
                                 |___/      
     */
 
-
+    protected $fillable = ['name'];
 
     /*
          ____      _       _   _                 

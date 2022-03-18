@@ -18,5 +18,8 @@ Route::get('/', function () {
 });
 
 Route::resource('articles', ArticleController::class);
+Route::resource('articles', ArticleController::class, [
+    'only' => ['create', 'store'],
+])->middleware('auth');
 
 Auth::routes();

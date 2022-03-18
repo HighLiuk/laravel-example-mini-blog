@@ -21,7 +21,7 @@ class Article extends Model
                                 |___/      
     */
 
-
+    protected $fillable = ['title', 'text'];
 
     /*
          ____      _       _   _                 
