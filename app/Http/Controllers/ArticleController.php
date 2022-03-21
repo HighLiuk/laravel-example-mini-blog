@@ -84,7 +84,11 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        //
+        $article->load('categories', 'tags', 'author');
+        $all_categories = Category::all();
+        $all_tags = Tag::all();
+
+        return view('articles.show', compact('article', 'all_categories', 'all_tags'));
     }
 
     /**
