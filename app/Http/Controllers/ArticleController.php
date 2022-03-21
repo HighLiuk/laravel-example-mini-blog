@@ -73,6 +73,11 @@ class ArticleController extends Controller
             }
         }
 
+        if ($request->hasFile('main_image')) {
+            $article->addMediaFromRequest('main_image')
+                ->toMediaCollection('main_images');
+        }
+
         return redirect()->route('articles.index');
     }
 

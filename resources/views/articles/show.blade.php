@@ -11,9 +11,9 @@
 
                 <div class="card-body">
 
-                    {{-- <p>
+                    <p>
                         <img src="{{ $article->getFirstMediaUrl('main_images', 'main') }}" />
-                    </p> --}}
+                    </p>
 
                     <p>
                         <b>Author:</b> {{ $article->author->name }}

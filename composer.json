@@ -14,7 +14,8 @@
         "laravel/sanctum": "^2.14.1",
         "laravel/tinker": "^2.7",
         "laravel/ui": "^3.4",
-        "spatie/laravel-collection-macros": "^7.10"
+        "spatie/laravel-collection-macros": "^7.10",
+        "spatie/laravel-medialibrary": "^10.3"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.6",

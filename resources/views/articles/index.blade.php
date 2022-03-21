@@ -12,7 +12,7 @@
                     @forelse ($articles as $article)
                     <div class="row">
                         <div class="col-md-4">
-                            {{-- <img src="{{ $article->getFirstMediaUrl('main_images', 'thumb') }}" /> --}}
+                            <img src="{{ $article->getFirstMediaUrl('main_images', 'thumb') }}" />
                         </div>
                         <div class="col-md-8">
                             <a class="text-decoration-none" href="{{ route('articles.show', $article->id) }}">
