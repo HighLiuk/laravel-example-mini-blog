@@ -3,7 +3,7 @@
 
     <div class="card-body">
         <form class="d-flex gap-1" action="{{ route('articles.index') }}" method="GET">
-            <input type="text" name="query" placeholder="Enter a keyword here..." value="{{ request('query') }}" />
+            <input type="text" name="q" placeholder="Enter a keyword here..." value="{{ request('q') }}" />
             <input type="submit" class="btn btn-sm btn-primary" value="Search" />
         </form>
     </div>

@@ -25,8 +25,8 @@ class ArticleController extends Controller
             ->when(request()->tag_id, function ($query) {
                 $query->whereRelation('tags', 'id', request()->tag_id);
             })
-            ->when(request()->query, function ($query) {
-                $query->where('title', 'like', request()->query);
+            ->when(request()->q, function ($query) {
+                $query->where('title', 'like', '%' . request()->q . '%');
             })
             ->latest()
             ->paginate();
