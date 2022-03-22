@@ -13,13 +13,12 @@ use App\Http\Controllers\ArticleController;
 |
 */
 
-Route::get('/', function () {
-    return redirect()->route('articles.index');
+Route::middleware('auth')->group(function () {
+    Route::resource('articles', ArticleController::class)->only(['create', 'store']);
 });
 
-Route::resource('articles', ArticleController::class);
-Route::resource('articles', ArticleController::class, [
-    'only' => ['create', 'store'],
-])->middleware('auth');
+Route::resource('articles', ArticleController::class)->only(['index', 'show']);
+
+Route::redirect('/', route('articles.index'));
 
 Auth::routes();
