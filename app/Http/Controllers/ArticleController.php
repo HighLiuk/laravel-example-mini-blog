@@ -7,7 +7,6 @@ use App\Models\Article;
 use App\Models\Category;
 use App\Models\Tag;
 use Auth;
-use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
@@ -94,39 +93,5 @@ class ArticleController extends Controller
         $all_tags = Tag::all();
 
         return view('articles.show', compact('article', 'all_categories', 'all_tags'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Article  $article
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Article $article)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Article  $article
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Article $article)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Article  $article
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Article $article)
-    {
-        //
     }
 }
